@@ -42,7 +42,7 @@ class User {
     }
 }
 
-const u1 = new User('Dimych', 'it-incubator', new Date(1988, 1, 1));
+const u1 = new User('Dimych', 'it-incubator', new Date(1988, 1, 2));
 const u2 = new User('Artem', 'it-incubator', new Date(1988, 1, 1));
 
 // console.log(u1.hello === User.prototype.hello)
@@ -56,4 +56,36 @@ const u2 = new User('Artem', 'it-incubator', new Date(1988, 1, 1));
 // console.log(u1.getName())
 
 u1.name = 'Andrew';
-console.log(u1.name)
+// console.log(u1.name)
+
+// const users = [u1, u2]
+// users.forEach(user => user.hello())
+
+class Coder extends User {
+    constructor(name, site, dob, tech) {
+        super(name, site, dob)
+        this.tech = tech
+    }
+
+    code () {
+        console.log(`I am ${this.name}, here is my code ${this.tech} ....`)
+    }
+
+    hello () {
+        super.hello();
+        console.log('Go away')
+    }
+}
+
+const coder1 = new Coder('Andrew Ingener', 'it-incubator', new Date(1991, 2, 25), 'c#');
+coder1.code()
+coder1.hello()
+
+
+
+
+
+
+
+
+
